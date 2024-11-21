@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cal-Master</title>
+    <link rel="stylesheet" href="cal.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav>
+        <h2>Calculator <i class="fa-solid fa-calculator"></i></h2>
+
+        <input type="checkbox" name="backer" id="backer">
+
+        <label for="backer" id="backer_lable"><i class="fa-solid fa-compass"></i></label>
+
+        <label for="backer" id="overlay"></label>
+
+        <div class="links">
+
+            <label for="backer" id="backer_lable" class="nd"><i class="fa-solid fa-circle-xmark"></i></label>
+            <a href="index.html">Home</a>
+            <a href="">Help</a>
+            <a href="">About</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div id="calculator">
+            <input id="display" readonly>
+            <input id="result" readonly>
+    
+            <input id="nondisplay" readonly>
+    
+            <div id="keys">
+                <button class="number" onclick="twoFunction(event)">7</button>
+                <button class="number" onclick="twoFunction(event)">8</button>
+                <button class="number" onclick="twoFunction(event)">9</button>
+                <button class="clear" onclick="clearDisplay()">Clr</button>
+                <button class="number" onclick="twoFunction(event)">4</button>
+                <button class="number" onclick="twoFunction(event)">5</button>
+                <button class="number" onclick="twoFunction(event)">6</button>
+                <button class="symbol" onclick="twoFunction(event)">+</button>
+                <button class="symbol" onclick="twoFunction(event)">-</button>
+                <button class="number" onclick="twoFunction(event)">1</button>
+                <button class="number" onclick="twoFunction(event)">2</button>
+                <button class="number" onclick="twoFunction(event)">3</button>
+                <button class="symbol" onclick="twoFunction(event)">x</button>
+                <button class="symbol" onclick="twoFunction(event)">/</button>
+                <button class="symbol" onclick="twoFunction(event)">.</button>
+                <button class="equal" onclick="calculate()">=</button>
+                <button class="number" onclick="twoFunction(event)">0</button>
+                <button class="symbol" onclick="twoFunction(event)">%</button>
+                <button class="element" onclick="twoFunction(event)">π</button>
+                <button class="element" onclick="twoFunction(event)">Pow</button>
+                <button class="element" onclick="twoFunction(event)">e</button>
+                <button class="symbol" onclick="twoFunction(event)">(</button>
+                <button class="symbol" onclick="twoFunction(event)">)</button>
+                
+            </div>
+        </div>
+
+    </div>
+
+    <script src="cal.js"></script>
+</body>
+</html>

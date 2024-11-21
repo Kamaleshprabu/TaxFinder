@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax-Finder</title>
+    <link rel="stylesheet" href="tax.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav>
+        <h1 class="header">Tax-Finder</h1>
+
+        <input type="checkbox" id="menu-slider">
+        <label id="open-slidebar" for="menu-slider"><i class="fa-solid fa-compass"></i></label>
+
+        <label id="overlay" for="menu-slider"></label>
+        
+        <div class="links-holder">
+            <label id="close-slidebar" for="menu-slider"><i class="fa-solid fa-circle-xmark"></i></label>
+
+            <a class="links" href="cal.html">Calculator</a>
+            <a class="links" href="">help</a>
+            <a class="links" href="">About</a>
+        </div>
+        
+    </nav>
+
+    <div class="tax-slab">
+
+        <div class="one">
+            <h3>Tax slab</h3>
+            <select name="year" id="year">
+                <option value="1">Old Tax Rate</option>
+                <option value="2">New 2023-2024</option>
+            </select>
+        </div>
+
+        <div class="input-container">
+            <input id="user-input" type="number" required>
+            <label id="input-label" for="user-input">Enter Amount</label>
+        </div>
+
+        <button onclick="find()" id="find">Find</button>
+        <button onclick="reset()" id="reset">Reset</button>
+
+        <div class="table_container">
+            <table class="container">
+                <tr>
+                    <td class="tdone">Tax at Normal Rate</td><td class="tdtwo"><input id="normal_tax" type="text" readonly></td>
+                </tr>
+                <tr>
+                    <td class="tdone"><span>Less:</span> Rebate u/s 87A</td><td class="tdtwo"><input id="less_rebate" type="text" readonly></td>
+                </tr>
+                <tr>
+                    <td class="tdone">Tax after Rebate</td><td class="tdtwo"><input id="rebate_tax" type="text" readonly></td>
+                </tr>
+                <tr>
+                    <td class="tdone"><span>Add:</span> CESS at Rebeat</td><td class="tdtwo"><input id="rebate_cess" type="text" readonly></td>
+                </tr>
+                <tr>
+                    <td class="tdone"><span>Add:</span> CESS at Normal Rate</td><td class="tdtwo"><input id="normalcess" type="text" readonly></td>
+                </tr>
+                <tr>
+                    <td class="tdone">Net Tax Amount</td><td class="tdtwo"><input id="net_tax" type="text" readonly></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="tax.js"></script>
+</body>
+</html>
