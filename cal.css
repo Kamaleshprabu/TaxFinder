@@ -80,6 +80,13 @@ nav > h2{
     font-weight: bold;
     font-size: larger;
     border-radius: 10px;
+    transition: .1s ease-in-out;
+}
+
+.links > a:hover{
+    background-color: rgb(235, 143, 46);
+    border-radius: 10px;
+    border: 2px solid black;
 }
 
 nav{

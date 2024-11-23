@@ -19,13 +19,12 @@ function find(){
     normalcess.style.color = 'black';
     net_tax.style.color = 'black';
 
-    if(year.value == 1){
+    if(year.value == 1)
         check1();
-    }
-    else if (year.value == 2){
+    else if (year.value == 2)
         check2();
-    }
-
+    else if (year.value == 3)
+        check3()
 }
 
 function check1(){
@@ -367,6 +366,109 @@ function check2(){
 
 }
 
+function check3(){
+    
+    if( (amount.value >= 0) && (amount.value <= 300000) ){
+
+        normal_tax.value = '--';
+        less_rebate.value = '--';
+        rebate_tax.value = '--';
+        rebate_cess.value = '--';
+        normalcess.value = '--';
+        net_tax.value = 'Nill';
+    }
+
+    else if( (amount.value >300000) && (amount.value <= 700000) ){
+        
+        var amt = (amount.value - 300000) * 5/100;
+        var rebate = amt;
+        total = amt - rebate;
+        var cess = total * 4/100;
+
+        normal_tax.value = amt;
+        less_rebate.value = rebate;
+        rebate_tax.value = amt - rebate;
+        rebate_cess.value = cess;
+        normalcess.value = '--';
+        net_tax.value = total;
+    }
+
+    else if( (amount.value >700000) && (amount.value <= 1000000) ){
+
+        amt = ((amount.value - 600000) * 10/100) + (300000 * 5/100)
+        var normal_cess = amt * 4/100;
+        total = amt + normal_cess;
+
+        normal_tax.value = amt;
+        less_rebate.value = '--';
+        rebate_tax.value = '--';
+        rebate_cess.value = '--';
+        normalcess.value = normal_cess;
+        net_tax.value = total;
+    }
+
+    else if( (amount.value >1000000) && (amount.value <= 1200000) ){
+        
+        amt = ((amount.value - 900000) * 15/100) + (300000 * 5/100) + (300000 * 10/100);
+        normal_cess = amt * 4/100;
+        total = amt + normal_cess;
+
+        normal_tax.value = amt;
+        less_rebate.value = '--';
+        rebate_tax.value = '--';
+        rebate_cess.value = '--';
+        normalcess.value = normal_cess;
+        net_tax.value = total;
+    }
+
+    else if( (amount.value >1200000) && ( amount.value <= 1500000 ) ){
+        
+        amt = ((amount.value - 1200000)  * 20/100) + (300000 * 5/100) + (300000 * 10/100) + (300000 * 15/100);
+        normal_cess = amt * 4/100;
+        total = amt + normal_cess;
+
+        normal_tax.value = amt;
+        less_rebate.value = '--';
+        rebate_tax.value = '--';
+        rebate_cess.value = '--';
+        normalcess.value = normal_cess;
+        net_tax.value = total;
+    }
+
+    else if( (amount.value >1500000) ){
+        
+        amt = ((amount.value - 1500000)  * 30/100) + (300000 * 5/100) + (300000 * 10/100) + (300000 * 15/100) + (300000 * 20/100);
+        normal_cess = amt * 4/100;
+        total = amt + normal_cess;
+
+        normal_tax.value = amt;
+        less_rebate.value = '0';
+        rebate_tax.value = '0';
+        rebate_cess.value = '0';
+        normalcess.value = normal_cess;
+        net_tax.value = total;
+    }
+
+    else{
+
+        amount.style.color = 'red';
+        normal_tax.style.color = 'red';
+        less_rebate.style.color = 'red';
+        rebate_tax.style.color = 'red';
+        rebate_cess.style.color = 'red';
+        normalcess.style.color = 'red';
+        net_tax.style.color = 'red';
+        
+        normal_tax.value = '0';
+        less_rebate.value = '0';
+        rebate_tax.value = '0';
+        rebate_cess.value = '0';
+        normalcess.value = '0';
+        net_tax.value = 'Lose C/F';
+    }
+
+}
+
 function reset(){
 
     amount.style.color = 'black';
@@ -384,4 +486,14 @@ function reset(){
     rebate_cess.value = '';
     normalcess.value = '';
     net_tax.value = '';
+}
+
+var mode_btn = document.getElementById("mode_btn")
+mode_btn.onclick = function(){
+    document.body.classList.toggle("dark_theme");
+    if (document.body.classList.contains("dark_theme")){
+        mode_btn.innerHTML = `<i class="fa-solid fa-moon"></i>`
+    }else{
+        mode_btn.innerHTML = `<i class="fa-solid fa-sun"></i>` 
+    }
 }
