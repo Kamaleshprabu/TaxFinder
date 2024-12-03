@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tax-Finder</title>
     <link rel="stylesheet" href="tax.css">
+    <link rel="icon" href="TF-logo.jpg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -21,8 +22,8 @@
             <label id="close-slidebar" for="menu-slider"><i class="fa-solid fa-circle-xmark"></i></label>
 
             <a class="links" href="cal.html">Calculator</a>
-            <a class="links" href="">help</a>
-            <a class="links" href="">About</a>
+            <a class="links" onclick="help()">How To Use</a>
+            <a class="links" onclick="show()">About</a>
         </div>
         
     </nav>
@@ -33,7 +34,7 @@
             <h3>Tax slab</h3>
             <select name="year" id="year">
                 <option value="1">Old Tax Rate</option>
-                <option value="2">New 2023-2024</option>
+                <option value="2">New 2024-2025</option>
                 <option value="3">New 2025-2026</option>
             </select>
 
@@ -63,7 +64,7 @@
                     <td class="tdone">Tax after Rebate</td><td class="tdtwo"><input id="rebate_tax" type="text" readonly></td>
                 </tr>
                 <tr>
-                    <td class="tdone"><span>Add:</span> CESS at Rebeat</td><td class="tdtwo"><input id="rebate_cess" type="text" readonly></td>
+                    <td class="tdone"><span>Add:</span> CESS after Rebate</td><td class="tdtwo"><input id="rebate_cess" type="text" readonly></td>
                 </tr>
                 <tr>
                     <td class="tdone"><span>Add:</span> CESS at Normal Rate</td><td class="tdtwo"><input id="normalcess" type="text" readonly></td>
@@ -75,6 +76,84 @@
         </div>
 
     </div>
+
+    <div id="htu">
+
+        <div id="help_space">
+            <p><highlight>Select Tax Slab:</highlight> Use the dropdown menu at the top to choose between the Old Tax Rate or other option.</p>
+
+            <p><highlight>Enter Amount:</highlight> Input your taxable income in the text box labeled <red><i>Enter Amount</i></red>.</p>
+
+            <p><highlight>Find Tax:</highlight> Click the <red>Find</red> button to calculate the tax based on the selected slab.</p>
+
+            <p><highlight>Reset Fields:</highlight> To clear all inputs and results, click the <red>Reset</red> button.</p>
+
+            <p><highlight>View Result:</highlight> the tax calculation result will appear in the respective fields, showing:</p>
+
+            <p>‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎➣ Tax at Normal Rate.</p>
+
+            <p>‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎➣ Rebate under section 87A (if applicable).</p>
+
+            <p>‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎➣ Tax After Rebate.</p>
+
+            <p>‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎➣ CESS applied at both rebate and normal rates.</p>
+
+            <p>‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎➣ Final Net Tax Amount.</p>
+
+            <p><highlight>Use this tool to calculate your tax efficiently and accurately</highlight></p>
+        </div>
+
+        <div id="back-holder">
+
+            <div onclick=closeHelp() class="helpControl">
+                <h3>BACK</h3>
+            </div>
+
+        </div>
+        
+    </div>
+
+    <div id="aboutDetails">
+        <div id="aboutTax">
+
+            <h3 data-text="TAXFINDER" id="slabDetailsHead">TAXFINDER</h3>
+            <p>Tax-Finder is a simple and efficient tool to calculate income tax based on old and
+                latest tax rates (2024-2025, 2025-2026). <span id="nospan">‎ ‎ ‎ ‎ ‎‎ ‎ ‎ ‎ ‎‎ ‎ ‎ ‎ ‎‎ ‎ ‎ ‎ ‎‎ ‎ ‎ ‎ ‎‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  ‎ ‎ </span> 
+                It provides accurate tax breakdowns, including
+                 rebates and cess, making tax planning easy for everyone.
+            </p>
+    
+        </div>
+
+        <div id="developer">
+
+            <h3 data-text="DEVELOPEDBY" id="slabDetailsHead">DEVELOPEDBY</h3>
+            <p><red>KAMALESHPRABU S</red>,<span>‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎</span>
+                 <span id="nospan">‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  ‎ ‎ </span> 
+                 Aspiring Software Developer and Tester |
+                skilled in Web development, Manual and Automation Testing | Proficient in Python, HTML, CSS, JavaScript, MySQL and PostgreSQL.</p>
+    
+        </div>
+
+        <div id="approver">
+
+            <h3 data-text="APPROVEDBY" id="slabDetailsHead">APPROVEDBY</h3>
+            <p><red>MANISHANKAR R</red>,<span>‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎</span>
+                <span id="nospan">‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  ‎ ‎ </span>
+            Chartered Accountant, Expert in Financial Management and Accounting Practices | Ensuring Compliance and Accuracy in Tax and Financial Solution.</p>
+    
+        </div>
+
+        <div id="back-holder">
+
+            <div onclick=notShow() class="aboutControl">
+                <h3>BACK</h3>
+            </div>
+
+        </div>
+    </div>
+
+
 
     <script src="tax.js"></script>
 </body>

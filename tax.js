@@ -11,7 +11,10 @@ var year = document.getElementById("year");
 
 function find(){
 
+    amount.removeAttribute("class", "shake")
+
     amount.style.color = 'black';
+    amount.style.borderColor = 'var(--clr-family-2)'
     normal_tax.style.color = 'black';
     less_rebate.style.color = 'black';
     rebate_tax.style.color = 'black';
@@ -48,7 +51,7 @@ function check1(){
         less_rebate.value = rebate;
         rebate_tax.value = '0';
         rebate_cess.value = '0';
-        normalcess.value = '0';
+        normalcess.value = '───';
         net_tax.value = total;
     }
 
@@ -59,9 +62,9 @@ function check1(){
         total = amt + cess;
 
         normal_tax.value = amt;
-        less_rebate.value = '0';
-        rebate_tax.value = '0';
-        rebate_cess.value = '0';
+        less_rebate.value = '───';
+        rebate_tax.value = '───';
+        rebate_cess.value = '───';
         normalcess.value = cess;
         net_tax.value = total;
     }
@@ -73,16 +76,19 @@ function check1(){
         total = amt + cess;
 
         normal_tax.value = amt;
-        less_rebate.value = '0';
-        rebate_tax.value = '0';
-        rebate_cess.value = '0';
+        less_rebate.value = '───';
+        rebate_tax.value = '───';
+        rebate_cess.value = '───';
         normalcess.value = cess;
         net_tax.value = total;
     }
 
     else{
 
+        amount.setAttribute("class", "shake")
+
         amount.style.color = 'red';
+        amount.style.borderColor = 'red'
         normal_tax.style.color = 'red';
         less_rebate.style.color = 'red';
         rebate_tax.style.color = 'red';
@@ -100,147 +106,16 @@ function check1(){
 
 }
 
-// function check2(){
-
-//     if( (amount.value >= 0) && (amount.value <= 250000) ){
-
-//         normal_tax.value = '--';
-//         less_rebate.value = '--';
-//         rebate_tax.value = '--';
-//         rebate_cess.value = '--';
-//         normalcess.value = '--';
-//         net_tax.value = 'Nill';
-//     }
-    
-//     else if( (amount.value >250000) && (amount.value <= 500000) ){
-
-//         var amt = (amount.value - 250000) * 5/100;
-//         var rebate = total;
-//         total = amt - rebate;
-//         var cess = total * 4/100;
-
-//         normal_tax.value = amt;
-//         less_rebate.value = rebate;
-//         rebate_tax.value = total;
-//         rebate_cess.value = cess;
-//         normalcess.value = '--';
-//         net_tax.value = total;
-//     }
-
-//     else if( (amount.value >500000) && (amount.value <= 750000) ){
-
-//         if( amount.value < 700000){
-
-//             amt = ((amount.value - 500000) * 10/100) + ( 250000 * 5/100);
-//             rebate = amt;
-//             amt -= rebate;
-
-//             normal_tax.value = amt;
-//             less_rebate.value = rebate;
-//             rebate_tax.value = amt;
-//             rebate_cess.value = '--';
-//             normalcess.value = '--';
-//             net_tax.value = amt;
-//         }
-//         else{
-
-//             amt = ((amount.value - 500000) * 10/100) + ( 250000 * 5/100);
-//             var normal_cess = amt  * 4/100;
-//             total = amt + normal_cess;
-
-//             normal_tax.value = amt;
-//             less_rebate.value = '--';
-//             rebate_tax.value = '--';
-//             rebate_cess.value = '--';
-//             normalcess.value = normal_cess;
-//             net_tax.value = total;
-//         }
-//     }
-
-//     if( (amount.value > 750000) && (amount.value <= 1000000) ){
-
-//         amt = ((amount.value - 750000) * 15/100) + (250000 * 10/100) + (250000 * 5/100);
-//         normal_cess = amt * 4/100;
-//         total = amt + normal_cess;
-
-//         normal_tax.value = amt;
-//         less_rebate.value = '--';
-//         rebate_tax.value = '--';
-//         rebate_cess.value = '--';
-//         normalcess.value = normal_cess;
-//         net_tax.value = total;
-//     }
-
-//     if( (amount.value > 1000000) && (amount.value <= 1250000) ){
-
-//         amt = ((amount.value - 1000000) * 20/100) + (250000 * 15/100) + (250000 * 10/100) + (250000 * 5/100);
-//         normal_cess = amt * 4/100;
-//         total = amt + normal_cess;
-
-//         normal_tax.value = amt;
-//         less_rebate.value = '--';
-//         rebate_tax.value = '--';
-//         rebate_cess.value = '--';
-//         normalcess.value = normal_cess;
-//         net_tax.value = total;
-//     }
-
-//     if( (amount.value > 1250000) && (amount.value <= 1500000) ){
-        
-//         amt = ((amount.value - 1250000) * 25/100) + (250000* 20/100) + (250000 * 15/100) + (250000 * 10/100) + (250000 * 5/100);
-//         normal_cess = amt * 4/100;
-//         total = amt + normal_cess;
-
-//         normal_tax.value = amt;
-//         less_rebate.value = '--';
-//         rebate_tax.value = '--';
-//         rebate_cess.value = '--';
-//         normalcess.value = normal_cess;
-//         net_tax.value = total;
-//     }
-
-//     if (amount.value > 1500000){
-
-//         amt = ((amount.value - 1500000) * 30/100) + (250000 * 25/100) + (250000* 20/100) + (250000 * 15/100) + (250000 * 10/100) + (250000 * 5/100);
-//         normal_cess = amt * 4/100;
-//         total = amt + normal_cess;
-
-//         normal_tax.value = amt;
-//         less_rebate.value = '--';
-//         rebate_tax.value = '--';
-//         rebate_cess.value = '--';
-//         normalcess.value = normal_cess;
-//         net_tax.value = total;
-//     }
-    
-//     else{
-
-//         amount.style.color = 'red';
-//         normal_tax.style.color = 'red';
-//         less_rebate.style.color = 'red';
-//         rebate_tax.style.color = 'red';
-//         rebate_cess.style.color = 'red';
-//         normalcess.style.color = 'red';
-//         net_tax.style.color = 'red';
-
-//         normal_tax.value = '0';
-//         less_rebate.value = '0';
-//         rebate_tax.value = '0';
-//         rebate_cess.value = '0';
-//         normalcess.value = '0';
-//         net_tax.value = 'Lose C/F';
-//     }
-// }
 
 function check2(){
     
     if( (amount.value >= 0) && (amount.value <= 300000) ){
 
-        normal_tax.value = '--';
-        less_rebate.value = '--';
-        rebate_tax.value = '--';
-        rebate_cess.value = '--';
-        normalcess.value = '--';
+        normal_tax.value = '───';
+        less_rebate.value = '───';
+        rebate_tax.value = '───';
+        rebate_cess.value = '───';
+        normalcess.value = '───';
         net_tax.value = 'Nill';
     }
 
@@ -255,7 +130,7 @@ function check2(){
         less_rebate.value = rebate;
         rebate_tax.value = amt - rebate;
         rebate_cess.value = cess;
-        normalcess.value = '--';
+        normalcess.value = '───';
         net_tax.value = total;
     }
 
@@ -274,7 +149,7 @@ function check2(){
             less_rebate.value = rebate;
             rebate_tax.value = amt - rebate;
             rebate_cess.value = cess;
-            normalcess.value = '--';
+            normalcess.value = '───';
             net_tax.value = total;
 
         }else if ( (amount.value > 700000) && (amount.value <=725000)){
@@ -288,7 +163,7 @@ function check2(){
             less_rebate.value = amt - tax_reduce;
             rebate_tax.value = after_rebate;
             rebate_cess.value = cess;
-            normalcess.value = '--';
+            normalcess.value = '───';
             net_tax.value = total;
 
         }else{
@@ -296,9 +171,9 @@ function check2(){
             total = amt + normal_cess;
 
             normal_tax.value = amt;
-            less_rebate.value = '--';
-            rebate_tax.value = '--';
-            rebate_cess.value = '--';
+            less_rebate.value = '───';
+            rebate_tax.value = '───';
+            rebate_cess.value = '───';
             normalcess.value = normal_cess;
             net_tax.value = total;
         }
@@ -311,9 +186,9 @@ function check2(){
         total = amt + normal_cess;
 
         normal_tax.value = amt;
-        less_rebate.value = '--';
-        rebate_tax.value = '--';
-        rebate_cess.value = '--';
+        less_rebate.value = '───';
+        rebate_tax.value = '───';
+        rebate_cess.value = '───';
         normalcess.value = normal_cess;
         net_tax.value = total;
     }
@@ -325,9 +200,9 @@ function check2(){
         total = amt + normal_cess;
 
         normal_tax.value = amt;
-        less_rebate.value = '--';
-        rebate_tax.value = '--';
-        rebate_cess.value = '--';
+        less_rebate.value = '───';
+        rebate_tax.value = '───';
+        rebate_cess.value = '───';
         normalcess.value = normal_cess;
         net_tax.value = total;
     }
@@ -339,16 +214,19 @@ function check2(){
         total = amt + normal_cess;
 
         normal_tax.value = amt;
-        less_rebate.value = '0';
-        rebate_tax.value = '0';
-        rebate_cess.value = '0';
+        less_rebate.value = '───';
+        rebate_tax.value = '───';
+        rebate_cess.value = '───';
         normalcess.value = normal_cess;
         net_tax.value = total;
     }
 
     else{
 
+        amount.setAttribute("class", "shake")
+
         amount.style.color = 'red';
+        amount.style.borderColor = 'red'
         normal_tax.style.color = 'red';
         less_rebate.style.color = 'red';
         rebate_tax.style.color = 'red';
@@ -370,11 +248,11 @@ function check3(){
     
     if( (amount.value >= 0) && (amount.value <= 300000) ){
 
-        normal_tax.value = '--';
-        less_rebate.value = '--';
-        rebate_tax.value = '--';
-        rebate_cess.value = '--';
-        normalcess.value = '--';
+        normal_tax.value = '───';
+        less_rebate.value = '───';
+        rebate_tax.value = '───';
+        rebate_cess.value = '───';
+        normalcess.value = '───';
         net_tax.value = 'Nill';
     }
 
@@ -389,7 +267,7 @@ function check3(){
         less_rebate.value = rebate;
         rebate_tax.value = amt - rebate;
         rebate_cess.value = cess;
-        normalcess.value = '--';
+        normalcess.value = '───';
         net_tax.value = total;
     }
 
@@ -400,9 +278,9 @@ function check3(){
         total = amt + normal_cess;
 
         normal_tax.value = amt;
-        less_rebate.value = '--';
-        rebate_tax.value = '--';
-        rebate_cess.value = '--';
+        less_rebate.value = '───';
+        rebate_tax.value = '───';
+        rebate_cess.value = '───';
         normalcess.value = normal_cess;
         net_tax.value = total;
     }
@@ -414,9 +292,9 @@ function check3(){
         total = amt + normal_cess;
 
         normal_tax.value = amt;
-        less_rebate.value = '--';
-        rebate_tax.value = '--';
-        rebate_cess.value = '--';
+        less_rebate.value = '───';
+        rebate_tax.value = '───';
+        rebate_cess.value = '───';
         normalcess.value = normal_cess;
         net_tax.value = total;
     }
@@ -428,9 +306,9 @@ function check3(){
         total = amt + normal_cess;
 
         normal_tax.value = amt;
-        less_rebate.value = '--';
-        rebate_tax.value = '--';
-        rebate_cess.value = '--';
+        less_rebate.value = '───';
+        rebate_tax.value = '───';
+        rebate_cess.value = '───';
         normalcess.value = normal_cess;
         net_tax.value = total;
     }
@@ -442,16 +320,19 @@ function check3(){
         total = amt + normal_cess;
 
         normal_tax.value = amt;
-        less_rebate.value = '0';
-        rebate_tax.value = '0';
-        rebate_cess.value = '0';
+        less_rebate.value = '───';
+        rebate_tax.value = '───';
+        rebate_cess.value = '───';
         normalcess.value = normal_cess;
         net_tax.value = total;
     }
 
     else{
 
+        amount.setAttribute("class", "shake")
+
         amount.style.color = 'red';
+        amount.style.borderColor = 'red'
         normal_tax.style.color = 'red';
         less_rebate.style.color = 'red';
         rebate_tax.style.color = 'red';
@@ -471,7 +352,10 @@ function check3(){
 
 function reset(){
 
+    amount.removeAttribute("class", "shake")
+
     amount.style.color = 'black';
+    amount.style.borderColor = 'var(--clr-family-2)'
     normal_tax.style.color = 'black';
     less_rebate.style.color = 'black';
     rebate_tax.style.color = 'black';
@@ -496,4 +380,20 @@ mode_btn.onclick = function(){
     }else{
         mode_btn.innerHTML = `<i class="fa-solid fa-sun"></i>` 
     }
+}
+
+function show(){
+    document.getElementById("aboutDetails").style.display = "flex"
+}
+
+function notShow(){
+    document.getElementById("aboutDetails").style.display = "none"
+}
+
+function help(){
+    document.getElementById("htu").style.display = "flex"
+}
+
+function closeHelp(){
+    document.getElementById("htu").style.display = "none"
 }

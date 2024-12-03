@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cal-Master</title>
     <link rel="stylesheet" href="cal.css">
+    <link rel="icon" href="calculator-logo.jpg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <nav>
-        <h2>Calculator <i class="fa-solid fa-calculator"></i></h2>
+        <h2>Calculator</h2>
 
         <input type="checkbox" name="backer" id="backer">
 
@@ -19,15 +20,30 @@
         <label for="backer" id="overlay"></label>
 
         <div class="links">
-
             <label for="backer" id="backer_lable" class="nd"><i class="fa-solid fa-circle-xmark"></i></label>
-            <a href="index.html">Home</a>
-            <a href="">Help</a>
-            <a href="">About</a>
+            <a href="index.html">Tax-Finder</a>
+            <a onclick="help()">How To Use</a>
+            <a id="about" onclick="show()">About</a>
         </div>
     </nav>
 
     <div class="container">
+
+        <div id="outer">
+            <div id="controllers">
+                <h3 id="themeName">LIGHT THEME</h3>
+                <div id="themeChanger">
+                    <input type="checkbox" id="checkbox">
+                    <label for="checkbox" id="themeIcon"><i class="fa-solid fa-sun"></i></label>
+                </div>
+            </div>
+
+            <div id="tips">
+                <h4 data-text="TIPS">TIPS</h4>
+                <p><highlight>➣ Use Parenthese</highlight> to control the order of operation</p>
+                <p><highlight>➣ Use π and e</highlight> for constants in your calculations, Ex: π * 3 or e + 3</p>
+            </div>
+        </div>
 
         <div id="calculator">
             <input id="display" readonly>
@@ -60,6 +76,70 @@
                 <button class="symbol" onclick="twoFunction(event)">(</button>
                 <button class="symbol" onclick="twoFunction(event)">)</button>
                 
+            </div>
+        </div>
+
+        <div id="tip_bottom">
+            <h4 data-text="TIPS">TIPS</h4>
+            <p><highlight>➣ Use Parenthese</highlight> to control the order of operation.</p>
+            <p><highlight>➣ Use π and e</highlight> for constants in your calculations, Ex: π * 3 or e + 3.</p>
+        </div>
+
+        <div id="htu">
+
+            <div id="help_space">
+
+                <h3 data-text="HOWTOUSE">HOWTOUSE</h3>
+
+                <p><highlight>➥basic calculation:</highlight> Enter numbers and use the standard operators (<red>+</red>,<red> -</red>, <red>*</red>,<red> /</red>) to perform basic arithmetic operations.</p>
+
+                <p><highlight>➥advanced functions:</highlight> Use <red>Pow</red> for exponential (e.g., 2^3), and type <red>π</red> or <red>e</red> for mathematical constants. For example, π*2 or e^3.</p>
+
+                <p><highlight>➥parentheses:</highlight> Use parentheses () to group expressions and control the order of operations.</p>
+
+                <p><highlight>➥Toggle theme:</highlight> Switch between light and dark themes by clicking the <red>Light/Dark Theme</red> button for a customized viewing experience.</p>
+
+                <p><highlight>➥clear input:</highlight> Use the <red>Clr</red> button to reset the input field and start a new calculation.</p>
+                
+            </div>
+    
+            <div id="back-holder">
+    
+                <div onclick=closeHelp() class="helpControl">
+                    <h3>BACK</h3>
+                </div>
+    
+            </div>
+            
+        </div>
+
+        <div id="aboutDetails">
+            <div id="aboutTax">
+    
+                <h3 data-text="CALCULATOR" id="slabDetailsHead">CALCULATOR</h3>
+                <p>This advanced calculator, built using <i>HTML, CSS</i> and <i>JavaScript</i>, supports a wide range of operation from basic arithmetic to advanced functions like 
+                    <red>power (pow)</red>, <red>π (pi)</red> and <red>e (Euler's number)</red>. It features a clean, responsive design with a <i>light theme toggle</i> for improved
+                     usability. Designed for both simplicity and functionality, it's perfect for quick and complex calculations alike.
+                </p>
+        
+            </div>
+    
+            <div id="developer">
+    
+                <h3 data-text="DEVELOPEDBY" id="slabDetailsHead">DEVELOPEDBY</h3>
+                <p><red>KAMALESHPRABU S</red>,<span>‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎</span>
+                     <span id="nospan">‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  ‎ ‎ </span> 
+                     Aspiring Software Developer and Tester |
+                    skilled in Web development, Manual and Automation Testing | Proficient in Python, HTML, CSS, JavaScript, MySQL and PostgreSQL.</p>
+        
+            </div>
+    
+            <div id="back-holder">
+    
+                <div onclick=notShow() class="aboutControl">
+                    <h3>BACK</h3>
+                </div>
+    
             </div>
         </div>
 

@@ -10,10 +10,31 @@
 }
 
 :root{
-    --clr-1: rgb(255, 115, 0) ;
-    --clr-2: rgb(155, 37, 13) ;
-    --clr-3: rgb(245, 188, 57) ;
-    --clr-4: rgb(189, 143, 27) ;
+    --clr-1: #ff7300;
+    --clr-2: #9b250d;
+    --clr-3: #f5bc39;
+    --clr-4: #bd8f1b;
+    --clr-5: #ffe4c4;
+    --clr-6: #eb8f2e;
+    --clr-7: #ffaa00;
+    --clr-8: #000000;
+    --clr-9: #eb8f2e;
+    --clr-10: #ffffff;
+    --background: grayscale(0) contrast(100%);
+}
+
+.darkTheme{
+    --clr-1: #b2b2b2;
+    --clr-2: #000000;
+    --clr-3: #787878;
+    --clr-4: #5b5b5b;
+    --clr-5: #585757;
+    --clr-6: #000000;
+    --clr-7: #000000;
+    --clr-8: #ffffff;
+    --clr-9: #585757;
+    --clr-10: #000000;
+    --background: grayscale(100%) contrast(150%);;
 }
 
 *{
@@ -30,7 +51,19 @@ input{
 }
 
 body{
-    background-color: bisque;
+    background-color: var(--clr-5);
+    transition: .5s ease;
+}
+
+nav{
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: var(--clr-7);
+    padding: 0px 20px ;
+    transition: .5s ease;
 }
 
 nav > h2{
@@ -51,8 +84,9 @@ nav > h2{
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 2px black;
+    -webkit-text-stroke: 2px var(--clr-8);
     animation: animate-h1 3s linear infinite;
+    transition: .5s ease;
 }
 
 @keyframes animate-h1 {
@@ -62,11 +96,12 @@ nav > h2{
 }
 
 .links{
-    width: 25%;
+    width: 35%;
     height: 90%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
 
 .links > a{
@@ -75,28 +110,19 @@ nav > h2{
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: black;
+    color: var(--clr-8);
     font-family: var(--font-family-3);
     font-weight: bold;
     font-size: larger;
     border-radius: 10px;
-    transition: .1s ease-in-out;
+    transition: .3s ease;
+    cursor: pointer;
 }
 
 .links > a:hover{
-    background-color: rgb(235, 143, 46);
     border-radius: 10px;
-    border: 2px solid black;
-}
-
-nav{
-    height: 15vh;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    background-color: rgb(255, 170, 0);
-    padding: 0px 20px ;
+    background-color: var(--clr-9);
+    border: 2px solid var(--clr-8);
 }
 
 #backer,
@@ -104,22 +130,111 @@ nav{
     display: none;
 }
 
-.links > a:hover,
-#backer_lable:hover{
-    background-color: rgb(235, 143, 46);
-}
-
 .container{
     min-height: 85vh;
     width: 100%;
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: transparent;
+    transition: .5s ease;
+}
+
+#outer{
+    width: 30%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#controllers{
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, .2);
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, .5);
+}
+
+#themeName{
+    font-family: var(--font-family-3);
+    font-weight: bold;
+}
+
+#themeChanger{
+    width: 60px;
+    height: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 3px;
+    background-color: aliceblue;
+    border-radius: 50px;
+    border: 2px solid var(--clr-6);
+}
+
+#checkbox{
+    display: none;
+}
+
+#themeIcon{
+    width: 20px;
+    height: 20px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    background-color: bisque;
+    text-align: center;
+    border-radius: 50%;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+#themeIcon > i {
+    color: var(--clr-6);
+}
+
+#checkbox:checked + #themeIcon{
+    margin-left: 32px;
+    transform: rotateX(180deg) rotate(180deg);
+}
+
+#tips{
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, .2);
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, .5);
+    font-family: var(--font-family-3);
+    font-weight: bold;
+}
+
+highlight{
+    font-size: larger;
+    font-weight: bolder;
+}
+
+#tip_bottom{
+    display: none;
+}
+
+#tips > h4::before,
+#tip_bottom > h4::before{
+    content: attr(data-text);
 }
 
 #calculator{
-    width: fit-content;
+    width: 60%;
     height: fit-content;
 
     display: flex;
@@ -136,13 +251,15 @@ nav{
 
     background: url(background.jpg) no-repeat center;
     background-size: cover;
-    backdrop-filter: blur(10px);
+    filter: var(--background);
 
-    border: 2px solid rgb(235, 143, 46);
+    border: 2px solid var(--clr-6);
     border-radius: 20px;
-    box-shadow: 5px 5px 10px black;
+    box-shadow: 5px 5px 10px var(--clr-8);
 
     z-index: 1;
+
+    transition: .5s ease;
 }
 
 #display,
@@ -153,20 +270,22 @@ nav{
     font-weight: bolder;
     font-size: larger;
     outline: none;
-    border: 2px solid white;
+    border: 2px solid var(--clr-10);
     text-align: right;
     padding-right: 10px;
+    background-color: var(--clr-10);
+    color: var(--clr-8);
 }
 
 #display{
     border-radius: 15px 15px 0px 0px ;
-    box-shadow: 5px 7px 5px rgb(30, 29, 29);
+    box-shadow: 5px 7px 5px var(--clr-8);
 }
 
 #result{
     margin-bottom: 15px;
     border-radius: 0px 0px 15px 15px ;
-    box-shadow: 5px 5px 5px rgb(30, 29, 29);
+    box-shadow: 5px 5px 5px var(--clr-8);
 }
 
 #nondisplay{
@@ -180,17 +299,17 @@ nav{
 }
 
 button{
-    width: 50px;
+    width: 135px;
     height: 50px;
     border: none;
     border-radius: 5px;
     text-align: center;
     font-family: var(--font-family-2);
     font-weight: bolder;
-    font-size: medium;
+    font-size: larger;
     cursor: pointer;
     border-radius: 15px;
-    border: 2px solid black;
+    border: 2px solid var(--clr-8);
     box-shadow: 3px 3px 5px rgb(30, 29, 29);
     transition: ease-in-out .3s;
 }
@@ -207,6 +326,7 @@ button:active{
     grid-column: 5/5;
     background-color: var(--clr-2);
     color: aliceblue;
+    font-size: 40px;
 }
 
 .clear{
@@ -221,19 +341,236 @@ button:active{
 .symbol{
     background-color: var(--clr-4);
     color: aliceblue;
-    font-size: 1rem;
+    font-size: 20px;
 }
 
 .element{
     background-color: var(--clr-1);
+    font-size: 20px;
 }
 
 .number{
     background-color: var(--clr-3);
-    color: black;
+    color: var(--clr-8);
 }
 
+#htu,
+#aboutDetails{
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: transparent;
+    backdrop-filter: blur(80px);
+    z-index: 5;
+    transition: .3s ease-in-out;
+}
+
+#help_space{
+    width: 90%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, .2);
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 15px;
+    padding: 10px;
+    animation: animate2 3s linear;
+}
+
+@keyframes animate2 {
+    0%, 10%{
+        opacity: 0;
+    }
+    20%, 30%{
+        opacity: .4;
+    }
+    40%, 60%{
+        opacity: .8;
+    }
+    70%, 90%{
+        opacity: .6;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+#aboutTax,
+#developer{
+    width: 45%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, .2);
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 15px;
+    padding: 10px;
+}
+
+#aboutTax{
+    animation: tax_move 1.5s linear;
+}
+
+#developer{
+    animation: dev_move 1.5s linear;
+}
+
+@keyframes tax_move {
+    from{
+        transform: translateX(-115%);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes dev_move {
+    from{
+        transform: translateX(115%);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+#back-holder{
+    width: 90%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+#back-holder > .helpControl,
+#back-holder > .aboutControl{
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    color: var(--clr-8);
+    font-family: var(--font-family-3);
+    font-weight: bolder;
+    font-size: larger;
+    background-color: var(--clr-6);
+    border: 2px solid var(--clr-8);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+#tips > h4,
+#tip_bottom > h4{
+    width: 80px;
+}
+#aboutTax > h3{
+    width: 235px;
+}
+#developer > h3{
+    width: 260px;
+}
+
+#tips > h4,
+#tip_bottom > h4,
+#help_space > h3,
+#aboutTax > h3,
+#developer > h3{
+    position: relative;
+    font-family: var(--font-family-3);
+    font-weight: bolder;
+    font-size: 30px;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--clr-8);
+    letter-spacing: 5px;
+}
+
+#aboutTax > h3::before{
+    content: attr(data-text);
+}
+#developer > h3::before{
+    content: attr(data-text);
+}
+
+#help_space > h3::before{
+    content: attr(data-text);
+}
+
+#tips > h4::before,
+#tip_bottom > h4::before,
+#help_space > h3::before,
+#aboutTax > h3::before,
+#developer > h3::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: var(--clr-6);
+    -webkit-text-stroke: 2px var(--clr-8);
+    border-right: 2px solid var(--clr-6);
+    overflow: hidden;
+    animation: animate 6s infinite linear;
+}
+
+#aboutTax > p,
+#developer > p{
+    font-size: medium;
+    font-weight: bold;
+    font-family: var(--font-family-3);
+}
+
+#help_space > p{
+    font-family: var(--font-family-3);
+    font-size: medium;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+red{
+    color: red;
+    font-size: large;
+}
+
+highlight{
+    text-transform: uppercase;
+    color: var(--clr-6);
+    -webkit-text-stroke: 1.5px var(--clr-8);
+    letter-spacing: 2px;
+}
+
+@keyframes animate {
+    0%, 10%, 100%{
+        width: 0;
+    }
+    70%, 90%{
+        width: 100%;
+    }
+}
+
+/*For Mobile*/
+
 @media (max-width:600px) {
+  
+    nav{
+        height: 10vh;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 20px ;
+    }
+
     nav > h2{
         font-size: 1.8rem;
         padding-left: 0px;
@@ -243,15 +580,6 @@ button:active{
         width: 40px;
         height: 40px;
     }
-
-    nav{
-        height: 10vh;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0px 20px ;
-    }
-
     .links{
         flex-direction: column;
         justify-content: flex-start;
@@ -259,23 +587,29 @@ button:active{
 
         position: fixed;
         top: 0;
-        right: 0;
+        right: -5%;
         z-index: -1;
 
         width: 0;
         height: 0;
         padding: 5px;
-        gap: 10px;
+        gap: 25px;
 
-        background-color: rgb(255, 170, 0);
+        background-color: var(--clr-7);
         border-radius: 10px;
-        box-shadow: -5px 5px 10px black;
+        box-shadow: -5px 5px 10px var(--clr-8);
         transition: ease-in-out .4s;
+    }
+
+    .links > a,
+    .links > #backer_lable{
+        font-size: 0px;
+        transition: .3s ease-in-out;
     }
 
     #backer_lable{
         display: flex;
-        color: black;
+        color: var(--clr-8);
         font-size: larger;
         padding: 15px 20px;
         border-radius: 50%;
@@ -286,6 +620,7 @@ button:active{
         width: 200px;
         height: 50%;
         z-index: 3;
+        right: 0;
     }
 
     .links > a{
@@ -294,9 +629,14 @@ button:active{
         padding-left: 20px;
     }
 
+    #backer:checked ~ .links > a,
+    #backer:checked ~ .links > #backer_lable{
+        font-size: larger;
+    }
+
     .links > a:hover,
     #backer_lable:hover{
-        background-color: rgb(235, 143, 46);
+        background-color: var(--clr-9);
     }
 
     #overlay{
@@ -315,11 +655,120 @@ button:active{
 
     .container{
         width: 100%;
-        min-height: 80vh;
+        height: fit-content;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 20px;
+        padding: 20px 0px;
+    }
+
+    #outer{
+        width: 90%;
+        height: fit-content;
+    }
+
+    #controllers{
+        width: 100%;
+        height: 10vh;
+    }
+
+    #calculator{
+        width: 90%;
     }
 
     #display,
     #result{
         width: 90%;
+    }
+
+    button{
+        font-size: large;
+    }
+
+    .equal{
+        font-size: 20px;
+    }
+    
+    .symbol{
+        font-size: 15px;
+    }
+
+    .element{
+        font-size: 15px;
+    }
+
+    #aboutDetails{
+        flex-direction: column;
+    }
+
+    #aboutTax{
+        width: 90%;
+        height: 50%;
+    }
+
+    #developer{
+        width: 90%;
+        height: 30%;
+    }
+
+    #back-holder{
+        height: 10%;
+    }
+
+    #back-holder > .helpControl,
+    #back-holder > .aboutControl{
+        width: 100px;
+        height: 50px;
+        font-size: medium;
+    }
+
+    #aboutTax > h3{
+        width: 170px;
+    }
+    #developer > h3{
+        width: 185px;
+    }
+
+    #aboutTax > h3,
+    #developer > h3{
+        font-size: larger;
+    }
+
+    #nospan{
+        display: none;
+    }
+
+    #tips{
+        display: none;
+    }
+    
+    #tip_bottom{
+        height: 20vh;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+        font-family: var(--font-family-3);
+        font-weight: bold;
+        background-color: rgba(255, 255, 255, .2);
+        border: 2px solid rgba(255, 255, 255, .5);
+        border-radius: 15px;
+        font-size: medium;
+        padding: 10px;
+    }
+
+    #tip_bottom > h4{
+        font-size: larger;
+        width: 60px;
+    }
+
+    highlight{
+        font-weight: bold;
+        font-size: medium;
+    }
+
+    #help_space{
+        height: 85%;
     }
 }

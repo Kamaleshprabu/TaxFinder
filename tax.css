@@ -58,7 +58,7 @@ nav{
 }
 
 .links-holder{
-    width: 25%;
+    width: 35%;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -77,6 +77,8 @@ nav{
     font-weight: bold;
     font-size: larger;
     color: var(--clr-family-3);
+    transition: .3s ease;
+    cursor: pointer;
 }
 
 .links:hover{
@@ -190,6 +192,7 @@ option{
     color: var(--clr-family-5);
     border-radius: 50%;
     transition: .5s ease-in-out;
+    cursor: pointer;
 }
 
 #theme_mode:checked + #mode_btn{
@@ -217,6 +220,16 @@ option{
     font-weight: 600;
 }
 
+.shake{
+    animation: shake .3s;
+}
+
+@keyframes shake {
+    25%{transform: translateX(4px);}
+    50%{transform: translateY(-4px);}
+    75%{transform: translateX(4px);}
+}
+
 #find, #reset{
     width: 20%;
     height: 50px;
@@ -227,8 +240,9 @@ option{
     font-weight: bold;
     font-family: var(--font-family-3);
     letter-spacing: 2px;
-    transition: .3s ease-in-out;
+    transition: .2s ease-in-out;
     color: var(--clr-family-3);
+    cursor: pointer;
 }
 
 #find:hover, #reset:hover{
@@ -236,7 +250,7 @@ option{
 }
 
 #find:active, #reset:active{
-    transform: scale(.9);
+    transform: scale(.94);
     box-shadow: 3px 3px 5px var(--clr-family-3);
 }
 
@@ -310,8 +324,235 @@ input{
     border-radius: 10px;
 }
 
+#htu,
+#aboutDetails{
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: transparent;
+    backdrop-filter: blur(80px);
+    z-index: 5;
+    transition: .3s ease-in-out;
+}
+
+#help_space{
+    width: 90%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, .2);
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 15px;
+    padding: 10px;
+    animation: animate2 3s linear;
+}
+
+@keyframes animate2 {
+    0%, 10%{
+        opacity: 0;
+    }
+    20%, 30%{
+        opacity: .4;
+    }
+    40%, 60%{
+        opacity: .8;
+    }
+    70%, 90%{
+        opacity: .6;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+highlight{
+    text-transform: uppercase;
+    color: var(--clr-family-4);
+    -webkit-text-stroke: 1.5px var(--clr-family-6);
+    letter-spacing: 2px;
+}
+
+red{
+    color: red;
+    font-size: large;
+}
+
+#help_space > p{
+    font-family: var(--font-family-3);
+    font-size: medium;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#aboutTax{
+    width: 90%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, .2);
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 15px;
+    padding: 10px;
+    animation: tax_move 1.5s linear;
+}
+
+#developer, 
+#approver{
+    width: 40%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, .2);
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 15px;
+    padding: 10px;
+}
+
+#developer{
+    animation: dev_move 1.5s linear;
+}
+
+#approver{
+    animation: app_move 1.5s linear;
+}
+
+@keyframes tax_move {
+    from{
+        transform: translateY(-115%);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+
+@keyframes dev_move {
+    from{
+        transform: translateX(-115%);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes app_move {
+    from{
+        transform: translateX(115%);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+#back-holder{
+    width: 90%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+#back-holder > .helpControl,
+#back-holder > .aboutControl{
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    color: var(--clr-family-3);
+    font-family: var(--font-family-3);
+    font-weight: bolder;
+    font-size: larger;
+    background-color: var(--clr-family-2);
+    border: 2px solid var(--clr-family-3);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+#aboutTax > h3{
+    width: 205px;
+}
+#developer > h3{
+    width: 260px;
+}
+#approver > h3{
+    width: 245px;
+}
+
+#aboutTax > h3,
+#developer > h3, 
+#approver > h3{
+    position: relative;
+    font-family: var(--font-family-3);
+    font-weight: bolder;
+    font-size: 30px;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--clr-family-3);
+    letter-spacing: 5px;
+}
+
+#aboutTax > h3::before{
+    content: attr(data-text);
+}
+#developer > h3::before{
+    content: attr(data-text);
+}
+#approver > h3::before{
+    content: attr(data-text);
+}
+
+#aboutTax > h3::before,
+#developer > h3::before,
+#approver > h3::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: var(--clr-family-5);
+    -webkit-text-stroke: 2px var(--clr-family-3);
+    border-right: 2px solid var(--clr-family-4);
+    overflow: hidden;
+    animation: animate 6s infinite linear;
+}
+
+@keyframes animate {
+    0%, 10%, 100%{
+        width: 0;
+    }
+    70%, 90%{
+        width: 100%;
+    }
+}
+
+#aboutTax > p,
+#developer > p, 
+#approver > p{
+    font-size: medium;
+    font-weight: bold;
+    font-family: var(--font-family-3);
+}
 
 @media (max-width:600px) {
+
+    nav{
+        height: 10vh;
+        padding-right: 10px;
+        padding-left: 20px;        
+    }
 
     .links-holder{
         flex-direction: column;
@@ -320,12 +561,13 @@ input{
 
         position: fixed;
         top: 0;
-        right: -10%;
+        right: -5%;
         z-index: -1;
 
         width: 0px;
         height: 0%;
         padding: 5px;
+        gap: 25px;
 
         background-color: var(--clr-family-2);
         border-radius: 10px;
@@ -333,16 +575,15 @@ input{
         transition: ease-in-out .4s;
     }
 
-    nav{
-        height: 10vh;
-        padding-right: 10px;
-        padding-left: 20px;        
+    .links-holder > a{
+        font-size: 0px;
+        transition: .3s ease-in-out;
     }
 
     #open-slidebar,
     #close-slidebar{
         display: flex;
-        padding: 0px 15px;
+        padding: 25px 20px;
         height: 40px;
         display: flex;
         align-items: center;
@@ -368,6 +609,13 @@ input{
         right: 0;
     }
 
+    #menu-slider:checked ~ .links-holder > #close-slidebar{
+        font-size: large;
+    }
+    #menu-slider:checked ~ .links-holder > a{
+        font-size: large;
+    }
+
     #menu-slider:checked ~ #overlay{
         width: 100%;
         height: 100%;
@@ -382,7 +630,6 @@ input{
 
     .links{
         width: 100%;
-        margin-top: 10px;
     }
 
     .tax-slab{
@@ -452,10 +699,11 @@ input{
     }
 
     #find:hover, #reset:hover{
-        background-color: var(--clr-family-8);
+        background-color: var(--clr-family-2);
     }
 
     #find:active, #reset:active{
+        background-color: var(--clr-family-8);
         box-shadow: 2px 2px 5px var(--clr-family-3);
     }
 
@@ -496,8 +744,52 @@ input{
 
     input{
         width: 95%;
-        height: 50%;
+        height: 60%;
         font-size: medium;
+    }
+
+    #developer{
+        width: 90%;
+        height: 30%;
+    }
+    #approver{
+        width: 90%;
+        height: 25%;
+    }
+
+    #help_space{
+        height: 85%;
+    }
+
+    #back-holder{
+        height: 10%;
+    }
+
+    #back-holder > .helpControl,
+    #back-holder > .aboutControl{
+        width: 100px;
+        height: 50px;
+        font-size: medium;
+    }
+
+    #aboutTax > h3{
+        width: 145px;
+    }
+    #developer > h3{
+        width: 185px;
+    }
+    #approver > h3{
+        width: 175px;
+    }
+
+    #aboutTax > h3,
+    #developer > h3, 
+    #approver > h3{
+        font-size: larger;
+    }
+
+    #nospan{
+        display: none;
     }
 }
 
