@@ -20,7 +20,7 @@
     --clr-8: #000000;
     --clr-9: #eb8f2e;
     --clr-10: #ffffff;
-    --background: grayscale(0) contrast(100%);
+    --background: contrast(100%);
 }
 
 .darkTheme{
@@ -28,13 +28,13 @@
     --clr-2: #000000;
     --clr-3: #787878;
     --clr-4: #5b5b5b;
-    --clr-5: #585757;
+    --clr-5: #302f2f;
     --clr-6: #000000;
     --clr-7: #000000;
     --clr-8: #ffffff;
-    --clr-9: #585757;
+    --clr-9: #302f2f;
     --clr-10: #000000;
-    --background: grayscale(100%) contrast(150%);;
+    --background: grayscale(100%);
 }
 
 *{
@@ -99,9 +99,9 @@ nav > h2{
     width: 35%;
     height: 90%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    
+    gap: 20px;
 }
 
 .links > a{
@@ -110,6 +110,7 @@ nav > h2{
     display: flex;
     align-items: center;
     text-decoration: none;
+    text-wrap: nowrap;
     color: var(--clr-8);
     font-family: var(--font-family-3);
     font-weight: bold;

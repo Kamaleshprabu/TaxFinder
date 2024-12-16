@@ -9,6 +9,13 @@ const net_tax = document.getElementById("net_tax");
 const container = document.querySelector(".container")
 var year = document.getElementById("year");
 
+let taxHistory = []
+
+window.onload = () => {
+    taxHistory = JSON.parse(localStorage.getItem('taxHistory')) || []
+    taxHistory.forEach(arr => addToHistory(arr))
+}
+
 function find(){
 
     amount.removeAttribute("class", "shake")
@@ -29,7 +36,6 @@ function find(){
     else if (year.value == 3)
         check3()
 }
-
 function check1(){
 
     if( (amount.value >= 0) && (amount.value <= 250000) ){
@@ -40,6 +46,12 @@ function check1(){
         rebate_cess.value = '0';
         normalcess.value = '0';
         net_tax.value = 'Nill';
+
+        let arr = [normal_tax.value, less_rebate.value, 
+            rebate_tax.value, rebate_cess.value, 
+            normalcess.value, net_tax.value]
+
+        addToArray(arr)
     }
     else if( (amount.value >250000) && (amount.value <= 500000) ){
         
@@ -53,6 +65,12 @@ function check1(){
         rebate_cess.value = '0';
         normalcess.value = '───';
         net_tax.value = total;
+
+        let arr = [normal_tax.value, less_rebate.value, 
+            rebate_tax.value, rebate_cess.value, 
+            normalcess.value, net_tax.value]
+
+        addToArray(arr)
     }
 
     else if ((amount.value >500000) && (amount.value <= 1000000)){
@@ -67,6 +85,12 @@ function check1(){
         rebate_cess.value = '───';
         normalcess.value = cess;
         net_tax.value = total;
+
+        let arr = [normal_tax.value, less_rebate.value, 
+            rebate_tax.value, rebate_cess.value, 
+            normalcess.value, net_tax.value]
+
+        addToArray(arr)
     }
 
     else if(amount.value > 1000000){
@@ -81,6 +105,12 @@ function check1(){
         rebate_cess.value = '───';
         normalcess.value = cess;
         net_tax.value = total;
+
+        let arr = [normal_tax.value, less_rebate.value, 
+            rebate_tax.value, rebate_cess.value, 
+            normalcess.value, net_tax.value]
+
+        addToArray(arr)
     }
 
     else{
@@ -102,11 +132,14 @@ function check1(){
         rebate_cess.value = '0';
         normalcess.value = '0';
         net_tax.value = 'Loss C/F';
+
+        let arr = [normal_tax.value, less_rebate.value, 
+            rebate_tax.value, rebate_cess.value, 
+            normalcess.value, net_tax.value]
+
+        addToArray(arr)
     }
-
 }
-
-
 function check2(){
     
     if( (amount.value >= 0) && (amount.value <= 300000) ){
@@ -117,6 +150,12 @@ function check2(){
         rebate_cess.value = '───';
         normalcess.value = '───';
         net_tax.value = 'Nill';
+
+        let arr = [normal_tax.value, less_rebate.value, 
+            rebate_tax.value, rebate_cess.value, 
+            normalcess.value, net_tax.value]
+
+        addToArray(arr)
     }
 
     else if( (amount.value >300000) && (amount.value <= 600000) ){
@@ -132,6 +171,12 @@ function check2(){
         rebate_cess.value = cess;
         normalcess.value = '───';
         net_tax.value = total;
+
+        let arr = [normal_tax.value, less_rebate.value, 
+            rebate_tax.value, rebate_cess.value, 
+            normalcess.value, net_tax.value]
+
+        addToArray(arr)
     }
 
     else if( (amount.value >600000) && (amount.value <= 900000) ){
@@ -152,7 +197,14 @@ function check2(){
             normalcess.value = '───';
             net_tax.value = total;
 
-        }else if ( (amount.value > 700000) && (amount.value <=725000)){
+            let arr = [normal_tax.value, less_rebate.value, 
+                rebate_tax.value, rebate_cess.value, 
+                normalcess.value, net_tax.value]
+
+            addToArray(arr)
+        }
+        
+        else if ( (amount.value > 700000) && (amount.value <=725000)){
             
             var tax_reduce = amount.value - 700000;
             var after_rebate = tax_reduce;
@@ -166,6 +218,12 @@ function check2(){
             normalcess.value = '───';
             net_tax.value = total;
 
+            let arr = [normal_tax.value, less_rebate.value, 
+                rebate_tax.value, rebate_cess.value, 
+                normalcess.value, net_tax.value]
+
+            addToArray(arr)
+
         }else{
 
             total = amt + normal_cess;
@@ -176,6 +234,12 @@ function check2(){
             rebate_cess.value = '───';
             normalcess.value = normal_cess;
             net_tax.value = total;
+
+            let arr = [normal_tax.value, less_rebate.value, 
+                rebate_tax.value, rebate_cess.value, 
+                normalcess.value, net_tax.value]
+
+            addToArray(arr)
         }
     }
 
@@ -191,6 +255,12 @@ function check2(){
         rebate_cess.value = '───';
         normalcess.value = normal_cess;
         net_tax.value = total;
+
+        let arr = [normal_tax.value, less_rebate.value, 
+            rebate_tax.value, rebate_cess.value, 
+            normalcess.value, net_tax.value]
+
+        addToArray(arr)
     }
 
     else if( (amount.value >1200000) && ( amount.value <= 1500000 ) ){
@@ -205,6 +275,12 @@ function check2(){
         rebate_cess.value = '───';
         normalcess.value = normal_cess;
         net_tax.value = total;
+
+        let arr = [normal_tax.value, less_rebate.value, 
+            rebate_tax.value, rebate_cess.value, 
+            normalcess.value, net_tax.value]
+
+        addToArray(arr)
     }
 
     else if( (amount.value >1500000) ){
@@ -219,6 +295,12 @@ function check2(){
         rebate_cess.value = '───';
         normalcess.value = normal_cess;
         net_tax.value = total;
+
+        let arr = [normal_tax.value, less_rebate.value, 
+            rebate_tax.value, rebate_cess.value, 
+            normalcess.value, net_tax.value]
+
+        addToArray(arr)
     }
 
     else{
@@ -240,6 +322,12 @@ function check2(){
         rebate_cess.value = '0';
         normalcess.value = '0';
         net_tax.value = 'Lose C/F';
+
+        let arr = [normal_tax.value, less_rebate.value, 
+            rebate_tax.value, rebate_cess.value, 
+            normalcess.value, net_tax.value]
+
+        addToArray(arr)
     }
 
 }
@@ -254,6 +342,12 @@ function check3(){
         rebate_cess.value = '───';
         normalcess.value = '───';
         net_tax.value = 'Nill';
+
+        let arr = [normal_tax.value, less_rebate.value, 
+            rebate_tax.value, rebate_cess.value, 
+            normalcess.value, net_tax.value]
+
+        addToArray(arr)
     }
 
     else if( (amount.value >300000) && (amount.value <= 700000) ){
@@ -269,6 +363,12 @@ function check3(){
         rebate_cess.value = cess;
         normalcess.value = '───';
         net_tax.value = total;
+
+        let arr = [normal_tax.value, less_rebate.value, 
+            rebate_tax.value, rebate_cess.value, 
+            normalcess.value, net_tax.value]
+
+        addToArray(arr)
     }
 
     else if( (amount.value >700000) && (amount.value <= 1000000) ){
@@ -283,6 +383,12 @@ function check3(){
         rebate_cess.value = '───';
         normalcess.value = normal_cess;
         net_tax.value = total;
+
+        let arr = [normal_tax.value, less_rebate.value, 
+            rebate_tax.value, rebate_cess.value, 
+            normalcess.value, net_tax.value]
+
+        addToArray(arr)
     }
 
     else if( (amount.value >1000000) && (amount.value <= 1200000) ){
@@ -297,6 +403,12 @@ function check3(){
         rebate_cess.value = '───';
         normalcess.value = normal_cess;
         net_tax.value = total;
+
+        let arr = [normal_tax.value, less_rebate.value, 
+            rebate_tax.value, rebate_cess.value, 
+            normalcess.value, net_tax.value]
+
+        addToArray(arr)
     }
 
     else if( (amount.value >1200000) && ( amount.value <= 1500000 ) ){
@@ -311,6 +423,12 @@ function check3(){
         rebate_cess.value = '───';
         normalcess.value = normal_cess;
         net_tax.value = total;
+
+        let arr = [normal_tax.value, less_rebate.value, 
+            rebate_tax.value, rebate_cess.value, 
+            normalcess.value, net_tax.value]
+
+        addToArray(arr)
     }
 
     else if( (amount.value >1500000) ){
@@ -325,6 +443,12 @@ function check3(){
         rebate_cess.value = '───';
         normalcess.value = normal_cess;
         net_tax.value = total;
+
+        let arr = [normal_tax.value, less_rebate.value, 
+            rebate_tax.value, rebate_cess.value, 
+            normalcess.value, net_tax.value]
+
+        addToArray(arr)
     }
 
     else{
@@ -346,8 +470,13 @@ function check3(){
         rebate_cess.value = '0';
         normalcess.value = '0';
         net_tax.value = 'Lose C/F';
-    }
 
+        let arr = [normal_tax.value, less_rebate.value, 
+            rebate_tax.value, rebate_cess.value, 
+            normalcess.value, net_tax.value]
+
+        addToArray(arr)
+    }
 }
 
 function reset(){
@@ -371,6 +500,45 @@ function reset(){
     normalcess.value = '';
     net_tax.value = '';
 }
+
+function addToArray(arr){
+    taxHistory.push(arr)
+    localStorage.setItem('taxHistory', JSON.stringify(taxHistory))
+    addToHistory(arr)
+}
+
+function addToHistory(arr){
+    let div = document.createElement("div")
+    div.classList = 'blocks'
+    div.innerHTML = `<p>Tax at Normal Rate: ${arr[0]}</p>
+            <p>Less: Rebate u/s 87A: ${arr[1]}</p>
+            <p>Tax after Rebate: ${arr[2]}</p>
+            <p><red>Add:</red> CESS after Rebate: ${arr[3]}</p>
+            <p><red>Add:</red> CESS at Normal Rate: ${arr[0]}</p>
+            <p>Net Tax Amount: ${arr[5]}</p>`
+    let btn = document.createElement("button")
+    btn.classList = 'del'
+    btn.innerText = 'DELETE'
+    div.appendChild(btn)
+    btn.addEventListener("click", () => {
+        remove(arr)
+        const popUpBox = document.getElementById("deleteMsgBox")
+        popUpBox.classList.add("pop-up")
+        setTimeout(() => popUpBox.classList.remove("pop-up"), 2000)
+        btn.parentElement.classList.add("delShake")
+        setTimeout(()  => btn.parentElement.remove(), 2000)
+    })
+    document.getElementById("history").appendChild(div)
+}
+
+function remove(arr){
+    let index = taxHistory.indexOf(arr)
+    if( index > -1)
+        taxHistory.splice(index, 1)
+    localStorage.setItem('taxHistory', JSON.stringify(taxHistory))
+}
+
+let themeMode
 
 var mode_btn = document.getElementById("mode_btn")
 mode_btn.onclick = function(){
@@ -397,3 +565,27 @@ function help(){
 function closeHelp(){
     document.getElementById("htu").style.display = "none"
 }
+
+function history(){
+    document.getElementById("history").style.display = "flex"
+}
+
+function closeHistory(){
+    document.getElementById("history").style.display = "none"
+}
+
+let blockNo = document.querySelectorAll(".blocks")
+let TaxHistory = document.getElementById("history")
+
+document.getElementById("clearAll").addEventListener("click", () =>{
+    localStorage.clear()
+    document.getElementById("deleteMsg").innerText = "ALL DATA HAS BEEN SUCCESSFULLY CLEARED"
+    const popUpBox = document.getElementById("deleteMsgBox")
+    popUpBox.classList.add("pop-up")
+    setTimeout(() => {
+        document.getElementById("deleteMsg").innerText = "DELETED"
+            popUpBox.classList.remove("pop-up")
+        },2000)
+    const toDelete = document.querySelectorAll(".blocks")
+    toDelete.forEach(ele => ele.remove())
+})

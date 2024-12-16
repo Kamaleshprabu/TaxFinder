@@ -24,6 +24,7 @@
             <a class="links" href="cal.html">Calculator</a>
             <a class="links" onclick="help()">How To Use</a>
             <a class="links" onclick="show()">About</a>
+            <a class="links" onclick="history()">History</a>
         </div>
         
     </nav>
@@ -103,9 +104,9 @@
             <p><highlight>Use this tool to calculate your tax efficiently and accurately</highlight></p>
         </div>
 
-        <div id="back-holder">
+        <div class = "back-holder">
 
-            <div onclick=closeHelp() class="helpControl">
+            <div onclick=closeHelp() class="backControl">
                 <h3>BACK</h3>
             </div>
 
@@ -144,16 +145,36 @@
     
         </div>
 
-        <div id="back-holder">
+        <div class = "back-holder">
 
-            <div onclick=notShow() class="aboutControl">
+            <div onclick=notShow() class="backControl">
                 <h3>BACK</h3>
             </div>
 
         </div>
     </div>
 
+    <div id="history">
+        <div id="historyNav">
+            <h3 data-text="HISTORY">HISTORY</h3>
 
+            <div class = "back-holder">
+
+                <div onclick = clearHistory() id="clearAll">
+                    <h3>CLEAR ALL</h3>
+                </div>
+    
+                <div onclick = closeHistory() class="backControl">
+                    <h3>BACK</h3>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+
+    <div id="deleteMsgBox">
+        <h3 id="deleteMsg">DELETED</h3>
+    </div>
 
     <script src="tax.js"></script>
 </body>
