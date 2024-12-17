@@ -583,7 +583,7 @@ document.getElementById("clearAll").addEventListener("click", () =>{
     const popUpBox = document.getElementById("deleteMsgBox")
     popUpBox.classList.add("pop-up")
     setTimeout(() => {
-        document.getElementById("deleteMsg").innerText = "DELETED"
+            document.getElementById("deleteMsg").innerText = "DELETED"
             popUpBox.classList.remove("pop-up")
         },2000)
     const toDelete = document.querySelectorAll(".blocks")
