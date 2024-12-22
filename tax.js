@@ -524,7 +524,7 @@ function addToHistory(arr){
         remove(arr)
         const popUpBox = document.getElementById("deleteMsgBox")
         popUpBox.classList.add("pop-up")
-        setTimeout(() => popUpBox.classList.remove("pop-up"), 2000)
+        setTimeout(() => popUpBox.classList.remove("pop-up"), 3000)
         btn.parentElement.classList.add("delShake")
         setTimeout(()  => btn.parentElement.remove(), 2000)
     })
@@ -583,9 +583,9 @@ document.getElementById("clearAll").addEventListener("click", () =>{
     const popUpBox = document.getElementById("deleteMsgBox")
     popUpBox.classList.add("pop-up")
     setTimeout(() => {
-            document.getElementById("deleteMsg").innerText = "DELETED"
+        document.getElementById("deleteMsg").innerText = "DELETED"
             popUpBox.classList.remove("pop-up")
-        },2000)
+        },3000)
     const toDelete = document.querySelectorAll(".blocks")
     toDelete.forEach(ele => ele.remove())
 })

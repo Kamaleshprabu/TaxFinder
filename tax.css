@@ -17,6 +17,15 @@
     --clr-family-7: #eb8f2e;
     --clr-family-8: #fcbb3a;
     --clr-family-9: #fcbb3a96;
+    --clr-family-10: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        #ffaa0049,
+        #ffaa0093,
+        #ffaa0093,
+        #ffaa00
+    );
+    --clr-family-11: #eb902e74;
 }
 
 .dark_theme{
@@ -29,6 +38,15 @@
     --clr-family-7: #302f2f;
     --clr-family-8: #2d2929;
     --clr-family-9: #302f2fa0;
+    --clr-family-10: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        #0000003b,
+        #00000097,
+        #00000097,
+        #000000
+    );
+    --clr-family-11: #302f2f79;
 }
 
 *{
@@ -534,7 +552,7 @@ red{
     font-size: large;
     background-color: var(--clr-family-2);
     border: 2px solid var(--clr-family-3);
-    border-radius: 50px;
+    border-radius: 10px;
     cursor: pointer;
     transition: .3s ease-in-out;
 }
@@ -633,15 +651,15 @@ red{
 }
 
 .del{
-    width: 30%;
-    height: 30px;
+    width: 35%;
+    height: 35px;
     font-size: medium;
     font-weight: bold;
     color: var(--clr-family-3);
     font-family: var(--font-family-3);
     background-color: var(--clr-family-2);
     border: 2px solid var(--clr-family-3);
-    border-radius: 50px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
@@ -671,12 +689,12 @@ red{
 }
 
 .pop-up{
-    animation: pop-up 2s ease-in-out;
+    animation: pop-up 3s ease-in-out;
 }
 
 @keyframes pop-up {
     25%, 75%{
-        top: 86%;
+        top: 88%;
     }
 }
 
@@ -694,6 +712,10 @@ red{
         10, 0, 0, 10);
         border-radius: 50%;
     }
+}
+
+#mobile__menu{
+    display: none;
 }
 
 @media (max-width:600px) {
@@ -874,6 +896,7 @@ red{
         font-size: medium;
         font-weight: bold;
         margin-top: 0;
+        margin-bottom: 5vh;
     }
 
     .container{
@@ -905,7 +928,7 @@ red{
     }
 
     #history{
-        min-height: 115vh;
+        min-height: 128vh;
         justify-content: space-around;
         gap: 30px;
         padding-bottom: 30px;
@@ -951,16 +974,16 @@ red{
 
     #htu > .back-holder > .backControl,
     #aboutDetails > .back-holder > .backControl{
-        width: 100px;
-        height: 30px;
+        width: 120px;
+        height: 40px;
         font-size: small;
         margin-left: auto;
     }
 
     #historyNav > .back-holder > .backControl,
     #historyNav > .back-holder > #clearAll{
-        width: 100px;
-        height: 30px;
+        width: 120px;
+        height: 40px;
         font-size: small;
         margin-left: 0;
     }
@@ -1007,6 +1030,51 @@ red{
         font-size: small;
         letter-spacing: 1px;
         margin: 0% 5%;
+    }
+
+    #mobile__menu{
+        width: 100%;
+        height: 10vh;
+        display: flex;
+        position: fixed;
+        top: 93%;
+        background: var(--clr-family-10);
+    }
+
+    #menu__btn__container{
+        width: 100%;
+        font-size: large;
+        position: absolute;
+        bottom: 30%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding-bottom: 15px;
+    }
+
+    #menu__btn__container > a, 
+    #menu__btn__container > h3{
+        width: 50px;
+        height: 50px;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: var(--clr-family-11);
+        border-radius: 10px;
+        text-decoration: none;
+        color: var(--clr-family-3);
+        box-shadow: 3px 3px 5px var(--clr-family-3);
+        transition: .3s ease;
+        cursor: pointer;
+        backdrop-filter: blur(5px);
+    }
+
+    #menu__btn__container > a:active, 
+    #menu__btn__container > h3:active{
+        background-color: var(--clr-family-8);
     }
 }
 
